@@ -59,16 +59,16 @@ public class EnemySpawnerHandler : MonoBehaviour
 
         if (contadorEnemigosTripod !=0)
         {
-            contadorEnemigosTripod=
+           contadorEnemigosTripod=
            createEnemy(findFurtherSpawnPoint(
            tripodSpawnPoints),1);
         }
       //  else {
             if (contadorEnemigosWalkers != 0)
             {
-               // contadorEnemigosWalkers=
-              //  createEnemy(    (
-                // WalkingDroneSpawnPoints), contadorEnemigosWalkers);
+                contadorEnemigosWalkers=
+                createEnemy(findFurtherSpawnPoint(
+                 WalkingDroneSpawnPoints), contadorEnemigosWalkers);
             }
             if (contadorEnemigosSpider != 0)
             {

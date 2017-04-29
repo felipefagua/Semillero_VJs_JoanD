@@ -91,6 +91,8 @@
     <Compile Include="Assets\Low Poly Rocks Pack\Bonus Assets\Scripts\CloudsControl.cs" />
     <Compile Include="Assets\Low Poly Rocks Pack\Bonus Assets\Scripts\FireLightControl.cs" />
     <Compile Include="Assets\Low Poly Rocks Pack\Bonus Assets\Scripts\SunControl.cs" />
+    <Compile Include="Assets\LowPolyWater\Demo\Scripts\DemoFreeFlyCamera.cs" />
+    <Compile Include="Assets\LowPolyWater\Scripts\LowPolyWater.cs" />
     <Compile Include="Assets\PlayerLife.cs" />
     <Compile Include="Assets\RalentizacionMira.cs" />
     <Compile Include="Assets\Scripts\ArenaControl.cs" />
@@ -179,6 +181,7 @@
     <Compile Include="Assets\_Mobile\Scripts\WeaponManager_Mobile.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\LowPolyWater\Shaders\LowPolyWater.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlurEffectConeTaps.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MobileBlur.shader" />
