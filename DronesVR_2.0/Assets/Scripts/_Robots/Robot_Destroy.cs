@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class Robot_Destroy : MonoBehaviour
 {
-	public int gun_damage;
+    //Observers
+    public OnEnemyDeath OnEnemyDeath;
+    public int gun_damage;
 	public int machine_damage;
 	public int submachinegun_damage;
 	public int sniperrifle_damage;
@@ -15,6 +18,18 @@ public class Robot_Destroy : MonoBehaviour
 	public TextMesh robot_health;
     int a = 0;
 
+    void Awake()
+    {
+        try
+        {
+            EnemySpawnerHandler enemySpawnerHandler = FindObjectOfType<EnemySpawnerHandler>();
+            OnEnemyDeath = enemySpawnerHandler.OnEnemyDeath;
+        }
+        catch (Exception e)
+        {
+            Debug.Log("controlado");
+        }
+    }
 
     void Update()
     {

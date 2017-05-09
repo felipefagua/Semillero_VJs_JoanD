@@ -39,7 +39,7 @@ public class UltimateEnemySpawner : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+      //  audioSource = GetComponent<AudioSource>();
         rondaActual = 0;
         initRound();
         contadorEnemigosActual = contadorEnemigosInicial;
@@ -66,8 +66,8 @@ public class UltimateEnemySpawner : MonoBehaviour {
 
     void initRound()
     {
-        audioSource.clip = starRoundSound;
-        audioSource.Play();
+      //  audioSource.clip = starRoundSound;
+       // audioSource.Play();
         rondaActual++;
         if (rondaActual % bossRound == 0)
             contadorEnemigosTripod = 1;
@@ -87,8 +87,9 @@ public class UltimateEnemySpawner : MonoBehaviour {
         if (contadorEnemigosSpawnRonda == 0)
         {
             hudHandler.refreshObjectiveHUD(roundTile + rondaActual + ": " + finishTile);
-            audioSource.clip = endRoundSound;
-            audioSource.Play();
+
+            //audioSource.clip = endRoundSound;
+            //audioSource.Play();
             Invoke("initRound", 20);
         }
     }

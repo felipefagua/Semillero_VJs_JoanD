@@ -68,15 +68,13 @@ Shader "LowPolyWater" {
 			#include "UnityStandardUtils.cginc"
 			#include "UnityLightingCommon.cginc"
 
+            #define COMPUTESCREENPOS ComputeScreenPos
 			#if UNITY_VERSION < 540
 				#define UNITY_VERTEX_INPUT_INSTANCE_ID
 				#define UNITY_VERTEX_OUTPUT_STEREO
 				#define UNITY_SETUP_INSTANCE_ID(v)
 				#define UNITY_TRANSFER_INSTANCE_ID(v,o)
 				#define UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o)
-				#define COMPUTESCREENPOS ComputeScreenPos
-			#else
-				#define COMPUTESCREENPOS ComputeNonStereoScreenPos
 			#endif
 
 			struct appdata {

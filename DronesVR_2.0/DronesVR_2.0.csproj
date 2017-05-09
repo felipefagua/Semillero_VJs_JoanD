@@ -73,6 +73,9 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="Mono.Cecil">
+      <HintPath>Library\UnityAssemblies\Mono.Cecil.dll</HintPath>
+    </Reference>
     <Reference Include="Assembly-UnityScript-firstpass">
       <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>
     </Reference>
@@ -84,6 +87,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\GalaxyBox1\examplescene.cs" />
     <Compile Include="Assets\GiveHealtHandler.cs" />
     <Compile Include="Assets\HUDHandler.cs" />
     <Compile Include="Assets\Low Poly Rocks Pack\Bonus Assets\Scripts\CameraControl.cs" />
@@ -92,6 +96,8 @@
     <Compile Include="Assets\Low Poly Rocks Pack\Bonus Assets\Scripts\SunControl.cs" />
     <Compile Include="Assets\LowPolyWater\Demo\Scripts\DemoFreeFlyCamera.cs" />
     <Compile Include="Assets\LowPolyWater\Scripts\LowPolyWater.cs" />
+    <Compile Include="Assets\LowPolyWater\Scripts\src\LPWEdgeBlend.cs" />
+    <Compile Include="Assets\LowPolyWater\Scripts\src\LPWNoise.cs" />
     <Compile Include="Assets\PlayerLife.cs" />
     <Compile Include="Assets\RalentizacionMira.cs" />
     <Compile Include="Assets\Scripts\ArenaControl.cs" />
@@ -190,7 +196,9 @@
     <Compile Include="Assets\_Mobile\Scripts\WeaponManager_Mobile.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\GalaxyBox1\instructions.txt" />
     <None Include="Assets\LowPolyWater\Shaders\LowPolyWater.shader" />
+    <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlurEffectConeTaps.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MobileBlur.shader" />

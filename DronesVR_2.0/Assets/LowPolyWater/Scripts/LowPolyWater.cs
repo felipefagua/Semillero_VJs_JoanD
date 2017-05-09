@@ -29,18 +29,6 @@ public class LowPolyWater : MonoBehaviour {
     [HideInInspector]
     public int size = -1; 
 
-    void Start() {
-        if (material == null || !material.HasProperty("_EdgeBlend")) return;
-        if (material.GetFloat("_EdgeBlend") > 0.1f) {
-            SetupCamera();
-        }
-    }
-
-    void SetupCamera() {
-        if (_camera == null) _camera = Camera.main;
-        _camera.depthTextureMode |= DepthTextureMode.Depth;
-    }
-
     void OnEnable() {
         // update deprecated parameters
         if(scale != -1 || size != -1) {
@@ -121,10 +109,6 @@ public class LowPolyWater : MonoBehaviour {
     void Generate() {
         if (material == null || !material.HasProperty("_EdgeBlend")) return;
 
-        if (material.GetFloat("_EdgeBlend") > 0.1f) {
-            SetupCamera();
-        }
-
         Scale(material, waveScale);
 
         if (!generate) return;
@@ -186,6 +170,7 @@ public class LowPolyWater : MonoBehaviour {
             go.transform.localScale = Vector3.one;
             var mf = go.AddComponent<MeshFilter>();
             var mr = go.AddComponent<MeshRenderer>();
+            go.AddComponent<LPWEdgeBlend>();
             mr.sharedMaterial = material;
             mr.receiveShadows = false;
             mr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
@@ -206,11 +191,20 @@ public class LowPolyWater : MonoBehaviour {
 
     void Add(List<Vector3> verts, Vector3 toAdd, float delta) {
         if (noise > 0) {
-            var n = UnityEngine.Random.insideUnitCircle * noise * delta / 2f;
+            var n = AddNoise(toAdd) / 2f;
             toAdd.x += n.x;
             toAdd.z += n.y;
         }
         verts.Add(toAdd);
+    }
+
+    Vector3 AddNoise(Vector3 v) {
+        var worldPos = transform.TransformPoint(v) * 4f / material.GetFloat("_Scale_");
+        var noiseVec = new Vector2(
+            LPWNoise.GetValue(worldPos.x, worldPos.z),
+            LPWNoise.GetValue(worldPos.x, worldPos.z + 100f));
+        noiseVec = noiseVec * 1.2f;
+        return noiseVec * noise;
     }
 
     //int sizeX, sizeZ;  //todo
@@ -311,7 +305,7 @@ public class LowPolyWater : MonoBehaviour {
 
                 var v = new Vector3(x, 0, z);
                 if (noise > 0) {
-                    var n = UnityEngine.Random.insideUnitCircle * noise * delta / 2f;
+                    var n = AddNoise(v) / 2f;
                     v.x += n.x;
                     v.z += n.y;
                 }
