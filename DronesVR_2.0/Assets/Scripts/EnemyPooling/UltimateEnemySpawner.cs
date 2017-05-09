@@ -37,14 +37,21 @@ public class UltimateEnemySpawner : MonoBehaviour {
 
     private Transform chosenOne;
     // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        rondaActual = 0;
+        initRound();
+        contadorEnemigosActual = contadorEnemigosInicial;
+        contadorEnemigosRonda = contadorEnemigosInicial;
+        curentEnemyHealt = initialEnemyHealt;
+    }
+ 
+
+    private int createEnemy(Transform spawnPoint, int numberOfEnemies2Spawn)
+    {
+        return spawnPoint.gameObject.GetComponent<SpiderDroneSpawnHandler>().createEnemy(numberOfEnemies2Spawn);
+    }
 
     double KGgenerator(double valorInicial, double seed)
     {
