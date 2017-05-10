@@ -40,6 +40,10 @@ public class Health : MonoBehaviour
         player_health -= explosition_damage;// curent health - explosion damage
     }
 
+    public void damage(float harm) {
+        player_health -= harm;
+    }
+
    void OnTriggerStay(Collider Col)// fire damage
     {
         if (Col.tag == "Fire")// if collider tag = "fire'

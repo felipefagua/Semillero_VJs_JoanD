@@ -10,7 +10,7 @@ public class EnemySpawnerHandler : MonoBehaviour
     //Atributos
     public Transform[] WalkingDroneSpawnPoints;
     public Transform[] spiderDroneSpawnPoints;
-    public Transform[] tripodSpawnPoints;
+    public Transform[] bossesSpawnPoints;
 
     public int contadorEnemigosInicial;
     public int contadorEnemigosActual;
@@ -23,11 +23,11 @@ public class EnemySpawnerHandler : MonoBehaviour
     public int rondaActual;
     private int chosenOne;
     public int rondaAparicionTripod;
-    public HUDHandler hudHandler;
+  //  public HUDHandler hudHandler;
 
     private AudioSource audioSource;
-    public AudioClip starRoundSound;
-    public AudioClip endRoundSound;
+   // public AudioClip starRoundSound;
+    //public AudioClip endRoundSound;
 
     private string roundTile = "Ronda";
     private string finishTile = "Completada.";
@@ -61,30 +61,29 @@ public class EnemySpawnerHandler : MonoBehaviour
         {
            contadorEnemigosTripod=
            createEnemy(findFurtherSpawnPoint(
-           tripodSpawnPoints),1);
+           bossesSpawnPoints),1,true);
         }
       //  else {
             if (contadorEnemigosWalkers != 0)
             {
                 contadorEnemigosWalkers=
                 createEnemy(findFurtherSpawnPoint(
-                 WalkingDroneSpawnPoints), contadorEnemigosWalkers);
+                 WalkingDroneSpawnPoints), contadorEnemigosWalkers,false);
             }
             if (contadorEnemigosSpider != 0)
             {
                 contadorEnemigosSpider=
                 createEnemy(findFurtherSpawnPoint(
-                spiderDroneSpawnPoints), contadorEnemigosSpider);
+                spiderDroneSpawnPoints), contadorEnemigosSpider,false);
             }
 
       //  }
         timePassed = 0F;
     }
 
-    private int createEnemy(Transform spawnPoint, int numberOfEnemies2Spawn){
-        return spawnPoint.gameObject.GetComponent<SpiderDroneSpawnHandler>().createEnemy(numberOfEnemies2Spawn);
+    private int createEnemy(Transform spawnPoint, int numberOfEnemies2Spawn, bool boss){
+        return spawnPoint.gameObject.GetComponent<SpiderDroneSpawnHandler>().createEnemy(numberOfEnemies2Spawn,boss);
     }
-
     double KGgenerator(double valorInicial, double seed){
         double m1 = (double)valorInicial * seed;
         return (double)Mathf.Log((float)(m1 / valorInicial));
@@ -95,12 +94,12 @@ public class EnemySpawnerHandler : MonoBehaviour
     }
 
     void initRound(){
-          audioSource.clip = starRoundSound;
-          audioSource.Play();
+        //  audioSource.clip = starRoundSound;
+         // audioSource.Play();
         rondaActual++;
         if (rondaActual % rondaAparicionTripod == 0)
             contadorEnemigosTripod = 1;
-        hudHandler.refreshObjectiveHUD(roundTile + " " + rondaActual + ": " + initTile);
+     //   hudHandler.refreshObjectiveHUD(roundTile + " " + rondaActual + ": " + initTile);
         double k = KGgenerator(contadorEnemigosInicial, 1.2);
         contadorEnemigosWalkers = crecimientoExponencial(contadorEnemigosInicial, k, rondaActual);
         contadorEnemigosSpider = contadorEnemigosWalkers * 2;
@@ -114,9 +113,9 @@ public class EnemySpawnerHandler : MonoBehaviour
         contadorEnemigosSpawnRonda--;
         Debug.Log("Enemigos: " + contadorEnemigosSpawnRonda);
         if (contadorEnemigosSpawnRonda == 0){
-            hudHandler.refreshObjectiveHUD(roundTile+rondaActual+": "+finishTile);
-            audioSource.clip = endRoundSound;
-            audioSource.Play();
+         //   hudHandler.refreshObjectiveHUD(roundTile+rondaActual+": "+finishTile);
+          //  audioSource.clip = endRoundSound;
+           // audioSource.Play();
             Invoke("initRound",20);
         }
     }

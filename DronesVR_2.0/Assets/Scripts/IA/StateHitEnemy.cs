@@ -7,28 +7,31 @@ public class StateHitEnemy : State {
     public GameObject enemy;
     public float dano;
     private EnemyHealth myHealt;
-    private PlayerLife playerHealt;
+    private Health playerHealt;
     private bool isDead;
     private bool FinishHit;
     private float animationTime;
     private float currentAnimationTime;
+
     public override void OnEntryAction()
     {
         myHealt = myTransform.GetComponent<EnemyHealth>();
-        playerHealt = enemy.GetComponent<PlayerLife>();
+        playerHealt = enemy.GetComponent<Health>();
         animationTime = (myTransform.gameObject.GetComponent<Animator>()).GetNextAnimatorStateInfo(0).length;
         isDead = false;
         FinishHit = false;
+        Debug.Log("HitEnemyOnEntry");
     }
 
     public override void OnUpdateAction()
     {
+        myHealt = myTransform.GetComponent<EnemyHealth>();
         //Activar animacion de golpear
         if (myHealt.currentHealth <= 0)
         {
             isDead = true;
         }
-        playerHealt.recibirDaño(dano);
+        playerHealt.damage(dano);
         Debug.Log("Daño");
         FinishHit = true;
         currentAnimationTime = (myTransform.gameObject.GetComponent<Animator>()).GetNextAnimatorStateInfo(0).normalizedTime;

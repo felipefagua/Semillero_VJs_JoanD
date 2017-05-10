@@ -7,15 +7,21 @@ public class SpiderDroneSpawnHandler : MonoBehaviour {
     public EnemyPoolScript spiderDronePool;
     public GameObject player;
 
-    public int createEnemy(int numberOfEnemys2Spawn)
+    public int createEnemy(int numberOfEnemys2Spawn, bool boss)
     {
         GameObject obj = spiderDronePool.GetPulledObject();
         if (obj != null)
         {
-            obj.GetComponent<ZombieController>().player = player;
             obj.transform.position = this.transform.position;
             obj.transform.rotation = this.transform.rotation;
-            obj.GetComponent<EnemyHealth>().isDead = false;
+            if (boss){
+                obj.GetComponent<Robot_Destroy>().Reset();
+            }
+            else {
+                obj.GetComponent<ZombieController>().player = player;
+                obj.GetComponent<EnemyHealth>().isDead = false;
+            }
+            
             obj.SetActive(true);
             numberOfEnemys2Spawn--;
         }

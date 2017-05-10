@@ -1,11 +1,11 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2015
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DronesVR_2.0.Plugins", "DronesVR_2.0.Plugins.csproj", "{7A690071-E035-F25E-D0B6-6304167F7E20}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DronesVR_2.0", "Assembly-CSharp-firstpass.csproj", "{1AED788A-C8A3-83AC-3F8A-D1076733B178}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DronesVR_2.0", "DronesVR_2.0.csproj", "{34FCD8C4-F845-5FCA-3663-7E2EE91B93A6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DronesVR_2.0", "Assembly-CSharp.csproj", "{B41211B0-D17F-5EE6-CE7B-A2F3051C16D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DronesVR_2.0.Editor", "DronesVR_2.0.Editor.csproj", "{61573561-44A9-5101-DFC9-D43C5E612BDE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DronesVR_2.0", "Assembly-CSharp-Editor.csproj", "{E80D5B98-F500-7A4D-DC1D-FC495CDFD810}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,20 +13,23 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7A690071-E035-F25E-D0B6-6304167F7E20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7A690071-E035-F25E-D0B6-6304167F7E20}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7A690071-E035-F25E-D0B6-6304167F7E20}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7A690071-E035-F25E-D0B6-6304167F7E20}.Release|Any CPU.Build.0 = Release|Any CPU
-		{34FCD8C4-F845-5FCA-3663-7E2EE91B93A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{34FCD8C4-F845-5FCA-3663-7E2EE91B93A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{34FCD8C4-F845-5FCA-3663-7E2EE91B93A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{34FCD8C4-F845-5FCA-3663-7E2EE91B93A6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{61573561-44A9-5101-DFC9-D43C5E612BDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{61573561-44A9-5101-DFC9-D43C5E612BDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{61573561-44A9-5101-DFC9-D43C5E612BDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{61573561-44A9-5101-DFC9-D43C5E612BDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AED788A-C8A3-83AC-3F8A-D1076733B178}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AED788A-C8A3-83AC-3F8A-D1076733B178}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AED788A-C8A3-83AC-3F8A-D1076733B178}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AED788A-C8A3-83AC-3F8A-D1076733B178}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B41211B0-D17F-5EE6-CE7B-A2F3051C16D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B41211B0-D17F-5EE6-CE7B-A2F3051C16D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B41211B0-D17F-5EE6-CE7B-A2F3051C16D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B41211B0-D17F-5EE6-CE7B-A2F3051C16D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E80D5B98-F500-7A4D-DC1D-FC495CDFD810}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E80D5B98-F500-7A4D-DC1D-FC495CDFD810}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E80D5B98-F500-7A4D-DC1D-FC495CDFD810}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E80D5B98-F500-7A4D-DC1D-FC495CDFD810}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
 	EndGlobalSection
 EndGlobal

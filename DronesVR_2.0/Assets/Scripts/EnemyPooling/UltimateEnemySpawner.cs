@@ -50,7 +50,7 @@ public class UltimateEnemySpawner : MonoBehaviour {
 
     private int createEnemy(Transform spawnPoint, int numberOfEnemies2Spawn)
     {
-        return spawnPoint.gameObject.GetComponent<SpiderDroneSpawnHandler>().createEnemy(numberOfEnemies2Spawn);
+        return spawnPoint.gameObject.GetComponent<SpiderDroneSpawnHandler>().createEnemy(numberOfEnemies2Spawn,false);
     }
 
     double KGgenerator(double valorInicial, double seed)

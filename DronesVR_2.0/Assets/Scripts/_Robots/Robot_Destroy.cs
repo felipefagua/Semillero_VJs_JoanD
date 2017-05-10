@@ -34,9 +34,10 @@ public class Robot_Destroy : MonoBehaviour
     void Update()
     {
 		robot_health.text = "" + Robot_health;
-			if (Robot_health <= 0)
+	    if (Robot_health <= 0)
         {
-            Destroy(gameObject);// destroy robot
+            //Destroy(gameObject);// destroy robot
+            this.gameObject.SetActive(false);
             if (ragdoll)
             {
                 Transform dead = Instantiate(ragdoll, transform.position, transform.rotation) as Transform;// create ragdoll
@@ -67,6 +68,9 @@ public class Robot_Destroy : MonoBehaviour
         {// if robot in fire 
 			Robot_health -= firedamage;
         }
+    }
+    public void Reset() {
+        Robot_health = 100;
     }
     void OnTriggerEnter(Collider Col2)
     {
