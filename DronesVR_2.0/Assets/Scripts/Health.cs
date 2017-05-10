@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
@@ -13,10 +14,17 @@ public class Health : MonoBehaviour
 	public int bullet_damage; // bullet damage
 	public int melee_damage=1;// melee atack damage
 	public GameObject camera;
+    public Slider healtSlider;
+
+    void Start()
+    {
+        healtSlider.minValue = 0;
+        healtSlider.maxValue = player_health;
+    }
     void Update()
     {
 
-
+        healtSlider.value = player_health;
         
 
         if (player_health <= player_health_min)// if curent health <= min health
@@ -26,10 +34,10 @@ public class Health : MonoBehaviour
 				gameObject.GetComponent<Health_BlackTexture>().change_speed = 1;// draw black texture
 				camera.GetComponent<Animation>().Play("Die");// the animation play "Die"
                 timeout += Time.deltaTime;// timer active
-                if (timeout >= 1)// after 1 second
+                if (timeout >= 5)// after 1 second
                 {
-					SceneManager.LoadScene (0, LoadSceneMode.Single);                
-				}
+                    Application.LoadLevel(Application.loadedLevel);
+                }
             }
             player_health = player_health_min;// curent health = min health
 

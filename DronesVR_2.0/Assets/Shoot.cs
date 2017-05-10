@@ -14,7 +14,7 @@ public class Shoot : MonoBehaviour {
             Debug.Log("Entro");
             EnemyHealth eh = other.GetComponent<EnemyHealth>();
             if (eh!=null) {
-                eh.TakeDamage(damagePerShot,new Vector3(0,0,0));
+              //  eh.TakeDamage(damagePerShot,new Vector3(0,0,0));
             }
         }
         if (other.gameObject.tag != "Bala")

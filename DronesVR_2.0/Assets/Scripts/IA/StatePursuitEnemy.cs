@@ -10,6 +10,7 @@ public class StatePursuitEnemy : State {
     private EnemyHealth myHealt;
     private bool isDead = false;
     private Animator animator;
+
     public override void OnEntryAction(){
         animator = me.GetComponent<Animator>();
         playWalkingAnimation();
@@ -42,6 +43,6 @@ public class StatePursuitEnemy : State {
         return isDead;
     }
     private void playWalkingAnimation() {
-        animator.SetTrigger("Death2Walking");
+        animator.Play("Walk");
     }
 }

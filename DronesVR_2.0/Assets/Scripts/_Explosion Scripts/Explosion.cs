@@ -14,7 +14,11 @@ public class Explosion : MonoBehaviour
             {
 				hitColliders[i].GetComponent<Robot_Destroy>().Robot_health-=hitColliders[i].GetComponent<Robot_Destroy>().explosion_damage;// robot health - explosion damage
 			}
-            if(hitColliders[i].CompareTag("CanBeRigidbody"))// if tag CanBeRigidbody
+            if (hitColliders[i].CompareTag("Enemy"))
+            {
+                hitColliders[i].GetComponent<EnemyHealth>().TakeDamage(40);
+            }
+            if (hitColliders[i].CompareTag("CanBeRigidbody"))// if tag CanBeRigidbody
             {
                 if(!hitColliders[i].GetComponent<Rigidbody>())
                 {

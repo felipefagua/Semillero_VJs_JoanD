@@ -33,7 +33,8 @@ public class StateDeath : State {
         (me.GetComponent<CharacterController>()).enabled = true;
     }
     public void PlayDeathAnimation() {
-        animator.SetTrigger("Walking2Death");
+        // animator.SetTrigger("Walking2Death");
+        me.SetActive(false);
     }
     public bool IsEnable2PursuitFromDeath() {
         return me.activeSelf;

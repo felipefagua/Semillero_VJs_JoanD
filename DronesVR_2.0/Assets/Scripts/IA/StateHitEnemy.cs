@@ -26,6 +26,7 @@ public class StateHitEnemy : State {
     public override void OnUpdateAction()
     {
         myHealt = myTransform.GetComponent<EnemyHealth>();
+        playerHealt = enemy.GetComponent<Health>();
         //Activar animacion de golpear
         if (myHealt.currentHealth <= 0)
         {

@@ -18,6 +18,8 @@ public class EnemyHealth : MonoBehaviour
     private Vector3 movementVector;
     private float gravity = 40;
     public ParticleSystem hitParticles;
+    public int firedamage;
+    public int knifedamage;
 
     void OnEnable() {
         isDead = false;
@@ -37,13 +39,11 @@ public class EnemyHealth : MonoBehaviour
         }
         
     }
-	public void TakeDamage (int amount, Vector3 hitPoint)
+	public void TakeDamage (int amount)
 	{
 		currentHealth -= amount;
-        Debug.Log(hitPoint);
-        hitParticles.transform.position = hitPoint;
-        Debug.Log("fasdfa"+hitParticles.transform.position);
-        hitParticles.Play();
+        //hitParticles.transform.position = hitPoint;
+       // hitParticles.Play();
 		if(currentHealth <= 0)
 		{
 			Death ();
@@ -55,6 +55,29 @@ public class EnemyHealth : MonoBehaviour
             OnEnemyDeath();
         }
         isDead = true;
-        PlayerScoreHandler.score += scoreValue;
+      //  PlayerScoreHandler.score += scoreValue;
+    }
+
+    void OnTriggerStay(Collider Col)
+    {
+        if (Col.tag == "Fire")
+        {// if robot in fire 
+            currentHealth -= firedamage;
+        }
+        if (currentHealth <= 0)
+        {
+            Death();
+        }
+    }
+    void OnTriggerEnter(Collider Col2)
+    {
+        if (Col2.tag == "Knife")
+        { // if hit knife 
+            currentHealth -= knifedamage;
+        }
+        if (currentHealth <= 0)
+        {
+            Death();
+        }
     }
 }

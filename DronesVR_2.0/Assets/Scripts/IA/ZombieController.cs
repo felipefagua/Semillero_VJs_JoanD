@@ -100,27 +100,27 @@ public class ZombieController : MonoBehaviour
         return stateIdle.timeIsOver();
     }
     public void FromWalking2HitAction() {
-        animator.SetTrigger("Walking2Hit");
+      //  animator.SetTrigger("Walking2Hit");
         Debug.Log("Walking2Hit");
     }
     public void FromHit2WalkingAction()
     {
-        animator.SetTrigger("Hit2Walking");
+      //  animator.SetTrigger("Hit2Walking");
         Debug.Log("Hit2Walking");
     }
     public void FromWalking2DeathAction()
     {
-        animator.SetTrigger("Walking2Death");
+    //    animator.SetTrigger("Walking2Death");
         Debug.Log("Walking2Death");
     }
     public void FromHit2DeathAction()
     {
-        animator.SetTrigger("Hit2Death");
+      //  animator.SetTrigger("Hit2Death");
         Debug.Log("Hit2Death");
     }
     public void FromDeath2WalkingAction()
     {
-        animator.SetTrigger("Death2Walking");
+      //  animator.SetTrigger("Death2Walking");
         Debug.Log("Death2Wallking");
     }
     public void ImIdle() {

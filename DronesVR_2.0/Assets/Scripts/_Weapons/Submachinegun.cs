@@ -112,7 +112,7 @@ public class Submachinegun : MonoBehaviour
 
 			camera1.GetComponent<MouseLook> ().sensitivityX = 3;//sensitivity change
 			camera1.GetComponent<MouseLook> ().sensitivityY = 3;//sensitivity change
-			GameObject.FindWithTag ("Player").GetComponent<MouseLook>().sensitivityX=3;//sensitivity change
+		//	GameObject.FindWithTag ("Player").GetComponent<MouseLook>().sensitivityX=3;//sensitivity change
         }
         else
 			if (Input.GetButtonDown("Aim") && aim == true)//if aim off
@@ -123,7 +123,7 @@ public class Submachinegun : MonoBehaviour
 
 			camera1.GetComponent<MouseLook> ().sensitivityX = 10;//sensitivity change
 			camera1.GetComponent<MouseLook> ().sensitivityY = 10;//sensitivity change
-			GameObject.FindWithTag ("Player").GetComponent<MouseLook>().sensitivityX=15;//sensitivity change
+		//	GameObject.FindWithTag ("Player").GetComponent<MouseLook>().sensitivityX=15;//sensitivity change
 			}
 			
 			
@@ -154,6 +154,9 @@ public class Submachinegun : MonoBehaviour
                 {
 					Hit.collider.GetComponent<Robot_Destroy>().Robot_health -= Hit.collider.GetComponent<Robot_Destroy>().submachinegun_damage;// robot health - damage
                 }
+                if (Hit.collider.CompareTag("Enemy")) {
+                    Hit.collider.GetComponent<EnemyHealth>().TakeDamage(10);
+                }
                 Quaternion HitRotation = Quaternion.FromToRotation(Vector3.up, Hit.normal);// create bullet hole
 
 
@@ -183,7 +186,7 @@ public class Submachinegun : MonoBehaviour
 
 			camera1.GetComponent<MouseLook> ().sensitivityX = 10;//sensitivity change
 			camera1.GetComponent<MouseLook> ().sensitivityY = 10;//sensitivity change
-			GameObject.FindWithTag ("Player").GetComponent<MouseLook>().sensitivityX=15;//sensitivity change
+			//GameObject.FindWithTag ("Player").GetComponent<MouseLook>().sensitivityX=15;//sensitivity change
         }
     }
 

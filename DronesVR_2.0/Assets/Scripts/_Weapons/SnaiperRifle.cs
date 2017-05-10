@@ -128,6 +128,10 @@ public class SnaiperRifle : MonoBehaviour
                 {
 					Hit.collider.GetComponent<Robot_Destroy>().Robot_health -= Hit.collider.GetComponent<Robot_Destroy>().sniperrifle_damage;// robot health - damage
                 }
+                if (Hit.collider.CompareTag("Enemy"))
+                {
+                    Hit.collider.GetComponent<EnemyHealth>().TakeDamage(10);
+                }
                 Quaternion HitRotation = Quaternion.FromToRotation(Vector3.up, Hit.normal);// create bullet hole
                 if (Hit.transform.GetComponent<Rigidbody>())// if ray hit rigidbody object
                 {
@@ -193,7 +197,7 @@ public class SnaiperRifle : MonoBehaviour
         camera1.GetComponent<Camera>().depth = 2;
 		camera1.GetComponent<MouseLook> ().sensitivityX = 3;//sensitivity change
 		camera1.GetComponent<MouseLook> ().sensitivityY = 3;//sensitivity change
-		GameObject.FindWithTag ("Player").GetComponent<MouseLook>().sensitivityX=3;//sensitivity change
+		//GameObject.FindWithTag ("Player").GetComponent<MouseLook>().sensitivityX=3;//sensitivity change
     }
 
     public void AimOff()
@@ -204,7 +208,7 @@ public class SnaiperRifle : MonoBehaviour
 
 		camera1.GetComponent<MouseLook> ().sensitivityX = 10;//sensitivity change
 		camera1.GetComponent<MouseLook> ().sensitivityY = 10;//sensitivity change
-		GameObject.FindWithTag ("Player").GetComponent<MouseLook>().sensitivityX=15;//sensitivity change
+		//GameObject.FindWithTag ("Player").GetComponent<MouseLook>().sensitivityX=15;//sensitivity change
     }
     void OnGUI()//draw current ammo
     {

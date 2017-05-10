@@ -114,7 +114,7 @@ public class Gun : MonoBehaviour
             aim = true;
 			camera1.GetComponent<MouseLook> ().sensitivityX = 3;//sensitivity change
 			camera1.GetComponent<MouseLook> ().sensitivityY = 3;//sensitivity change
-			GameObject.FindWithTag ("Player").GetComponent<MouseLook>().sensitivityX=3;//sensitivity change
+			//GameObject.FindWithTag ("Player").GetComponent<MouseLook>().sensitivityX=3;//sensitivity change
         }
         else
 			if (Input.GetButtonDown("Aim") && aim == true)
@@ -124,7 +124,7 @@ public class Gun : MonoBehaviour
           	aim = false;
 			camera1.GetComponent<MouseLook> ().sensitivityX = 10;//sensitivity change
 			camera1.GetComponent<MouseLook> ().sensitivityY = 10;//sensitivity change
-			GameObject.FindWithTag ("Player").GetComponent<MouseLook>().sensitivityX=15;//sensitivity change
+			//GameObject.FindWithTag ("Player").GetComponent<MouseLook>().sensitivityX=15;//sensitivity change
 			}
         
 
@@ -153,6 +153,10 @@ public class Gun : MonoBehaviour
                 if (Hit.collider.CompareTag("Robot"))//If ray hit robot
                 {
 					Hit.collider.GetComponent<Robot_Destroy>().Robot_health -= Hit.collider.GetComponent<Robot_Destroy>().gun_damage;// robot health - damage
+                }
+                if (Hit.collider.CompareTag("Enemy"))
+                {
+                    Hit.collider.GetComponent<EnemyHealth>().TakeDamage(10);
                 }
                 Quaternion HitRotation = Quaternion.FromToRotation(Vector3.up, Hit.normal);// create bullet hole
                 if (Hit.transform.GetComponent<Rigidbody>())// if ray hit rigidbody object
